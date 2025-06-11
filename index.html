@@ -1,33 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Clicker Game</title>
+    <meta charset="utf-8">
+    <title>Кликер-игра</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            background-color: lightblue;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            color: navy;
-        }
-        #counter {
-            font-size: 2x;
-            margin-top: 20px;
-        }
-    </style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    padding: 20px;
+    font-size: 2em;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+
+p {
+    font-size: 3em;
+    margin-top: 20px;
+}</style>
 </head>
 <body>
-<h1>Кликни!</h1>
-<div id="counter">0</div>
-<script>
-let counter = 0;
-document.body.onclick = function () {
-    counter++;
-    document.querySelector('#counter').innerText = counter;
-};
-</script>
+    <h1>Кликер-игра</h1>
+    <button onclick="incrementScore()">Жми сюда!</button>
+    <p id="score">0</p>
+
+    <!-- Скрипт JS -->
+    <script>
+let score = 0;
+const scoreElement = document.getElementById('score');
+
+function incrementScore() {
+    // Увеличиваем счёт и отправляем AJAX-запрос на сервер
+    score++;
+    scoreElement.textContent = score;
+
+    // Здесь делаем POST-запрос на сервер для сохранения результатов
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/save_score');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({ score }));
+}
+    </script>
 </body>
 </html>
-
-
