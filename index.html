@@ -1,52 +1,21 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Кликер-игра</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-button {
-    padding: 20px;
-    font-size: 2em;
-    border-radius: 10px;
-    background-color: green;
-    color: white;
-    cursor: pointer;
-}
-
-p {
-    font-size: 3em;
-    margin-top: 20px;
-}</style>
+    <meta charset="UTF-8">
+    <title>Clicker App</title>
 </head>
 <body>
-    <h1>Кликер-игра</h1>
-    <button onclick="incrementScore()">Жми сюда!</button>
-    <p id="score">0</p>
-
-    <!-- Скрипт JS -->
+    <h1>Кликер</h1>
+    <button id="click-btn">Кликни меня!</button>
     <script>
-let score = 0;
-const scoreElement = document.getElementById('score');
-
-function incrementScore() {
-    // Увеличиваем счёт и отправляем AJAX-запрос на сервер
-    score++;
-    scoreElement.textContent = score;
-
-    // Здесь делаем POST-запрос на сервер для сохранения результатов
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/save_score');
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({ score }));
-}
+        document.getElementById('click-btn').addEventListener('click', async () => {
+            await fetch('/log-click', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ type: 'click' })
+            });
+        });
     </script>
 </body>
 </html>
