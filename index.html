@@ -1,21 +1,27 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Clicker App</title>
+    <title>Button Clicker</title>
 </head>
 <body>
-    <h1>Кликер</h1>
-    <button id="click-btn">Кликни меня!</button>
-    <script>
-        document.getElementById('click-btn').addEventListener('click', async () => {
-            await fetch('/log-click', {
+    <button onclick="sendClickRequest()">Нажми меня!</button>
+    <p id="counter"></p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function sendClickRequest() {
+            $.ajax({
+                url: '/click',
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ type: 'click' })
+                success: function(data) {
+                    $('#counter').text(`Количество нажатий: ${data.count}`);
+                },
+                error: function(error) {
+                    console.error('Ошибка:', error);
+                }
             });
-        });
+        }
     </script>
 </body>
 </html>
