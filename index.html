@@ -1,27 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Button Clicker</title>
+    <title>Индивидуальная игра Кликер</title>
+    <style>
+        /* Оставим стиль простым */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #333;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
-    <button onclick="sendClickRequest()">Нажми меня!</button>
-    <p id="counter"></p>
+<div class="container">
+    <h1>Моя персональная кнопка 🎈</h1>
+    <div id="counter">0</div>
+    <!-- Получаем unique_id из строки запроса -->
+    <button onclick="sendClickRequest()">Кликни меня!</button>
+</div>
+<script>
+    // Парсим unique_id из URL
+    let params = new URLSearchParams(window.location.search);
+    let unique_id = params.get('unique_id');  // Пример передачи через GET-параметр
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-        function sendClickRequest() {
-            $.ajax({
-                url: '/click',
-                method: 'POST',
-                success: function(data) {
-                    $('#counter').text(`Количество нажатий: ${data.count}`);
-                },
-                error: function(error) {
-                    console.error('Ошибка:', error);
-                }
-            });
-        }
-    </script>
+    async function sendClickRequest() {
+        const response = await fetch(`/click/${unique_id}`);  // Отправляем запрос с уникальным идентификатором
+        const data = await response.json();
+        document.getElementById('counter').innerText = data.clicks;
+    }
+</script>
 </body>
 </html>
