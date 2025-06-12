@@ -1,29 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Simple Clicker with LocalStorage</title>
+    <title>Стильная кнопка</title>
+    <style>
+
+        h1{
+            scale: 200%;
+            padding: 5%;            
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: all 0.3s ease-in-out;
+            color: white;
+            background-image: linear-gradient(to right, #ffd700, #ffa500);
+            cursor: pointer;
+            outline: none;
+            border: none;
+            font-size: 150%;
+            letter-spacing: 2%;
+            padding: 10%; 
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+        
+        button:focus {
+            animation: clickEffect 0.3s forwards;
+        }
+        
+        @keyframes clickEffect {
+            from {transform: scale(1);}
+            to {transform: scale(0.9);}
+        }
+
+        h5{
+            padding: 10%;
+            scale: 150%;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Просто кликай!</h1>
+    <h1>Это твоя кнопка! 🔥</h1>
     <button id="clickMeBtn">Кликни меня!</button>
-    <p id="counterDisplay">Всего кликов: 0</p>
+    <h5 id="counterDisplay">Всего кликов: 0</h5>
 
     <script>
-        // Загружаем текущее количество кликов из localStorage
         let counter = Number(localStorage.getItem('clicks')) || 0;
-        
-        // Обновляем экран
         updateCounter(counter);
 
-        // Обработчик события клика
         document.getElementById('clickMeBtn').addEventListener('click', () => {
             counter++;
             localStorage.setItem('clicks', counter.toString());
             updateCounter(counter);
         });
 
-        // Функция обновления экрана
         function updateCounter(value) {
             document.getElementById('counterDisplay').innerText = `Всего кликов: ${value}`;
         }
