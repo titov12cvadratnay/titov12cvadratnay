@@ -1,54 +1,32 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Индивидуальная игра Кликер</title>
-    <style>
-        /* Оставим стиль простым */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            font-size: 3rem;
-            color: #333;
-        }
-        button {
-            padding: 15px 30px;
-            font-size: 1.5rem;
-            border-radius: 10px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        button:hover {
-            transform: scale(1.1);
-        }
-    </style>
+    <title>Simple Clicker with LocalStorage</title>
 </head>
 <body>
-<div class="container">
-    <h1>Моя персональная кнопка 🎈</h1>
-    <div id="counter">0</div>
-    <!-- Получаем unique_id из строки запроса -->
-    <button onclick="sendClickRequest()">Кликни меня!</button>
-</div>
-<script>
-    // Парсим unique_id из URL
-    let params = new URLSearchParams(window.location.search);
-    let unique_id = params.get('unique_id');  // Пример передачи через GET-параметр
+    <h1>Просто кликай!</h1>
+    <button id="clickMeBtn">Кликни меня!</button>
+    <p id="counterDisplay">Всего кликов: 0</p>
 
-    async function sendClickRequest() {
-        const response = await fetch(`/click/${unique_id}`);  // Отправляем запрос с уникальным идентификатором
-        const data = await response.json();
-        document.getElementById('counter').innerText = data.clicks;
-    }
-</script>
+    <script>
+        // Загружаем текущее количество кликов из localStorage
+        let counter = Number(localStorage.getItem('clicks')) || 0;
+        
+        // Обновляем экран
+        updateCounter(counter);
+
+        // Обработчик события клика
+        document.getElementById('clickMeBtn').addEventListener('click', () => {
+            counter++;
+            localStorage.setItem('clicks', counter.toString());
+            updateCounter(counter);
+        });
+
+        // Функция обновления экрана
+        function updateCounter(value) {
+            document.getElementById('counterDisplay').innerText = `Всего кликов: ${value}`;
+        }
+    </script>
 </body>
 </html>
