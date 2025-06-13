@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>Стильная кнопка</title>
     <style>
+        html {
+            touch-action: manipulation; /* Быстрое взаимодействие */
+        }
 
-        h1{
+        h1 {
             scale: 100%;
-            padding: 5%;            
+            padding: 5%;
         }
 
         body {
@@ -16,7 +19,7 @@
             text-align: center;
             padding-top: 50px;
         }
-        
+
         button {
             display: inline-block;
             padding: 15px 30px;
@@ -30,28 +33,30 @@
             border: none;
             font-size: 150%;
             letter-spacing: 2%;
-            padding: 10%; 
+            padding: 10%;
+            -webkit-tap-highlight-color: transparent; /* Прозрачный селектор */
+            -webkit-user-select: none;              /* Не выбираем текст */
+            user-select: none;                      /* Стандартное отключение выбора */
         }
-        
+
         button:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 24px rgba(0,0,0,0.3);
         }
-        
+
         button:focus {
             animation: clickEffect 0.3s forwards;
         }
-        
+
         @keyframes clickEffect {
             from {transform: scale(1);}
             to {transform: scale(0.9);}
         }
 
-        h5{
+        h5 {
             padding: 10%;
             scale: 150%;
         }
-
     </style>
 </head>
 <body>
