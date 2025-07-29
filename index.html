@@ -1,78 +1,84 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Стильная кнопка</title>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Почему я должен делать fronted</title>
     <style>
-        html {
-            touch-action: manipulation; /* Быстрое взаимодействие */
-        }
-
-        h1 {
-            scale: 100%;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fafafa;
-            text-align: center;
-        }
-
-        button {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 30px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            transition: all 0.3s ease-in-out;
-            color: white;
-            background-image: linear-gradient(to right, #ffd700, #ffa500);
-            cursor: pointer;
-            outline: none;
-            border: none;
+        h1{
             font-size: 150%;
-            letter-spacing: 2%;
-            -webkit-tap-highlight-color: transparent; /* Прозрачный селектор */
-            -webkit-user-select: none;              /* Не выбираем текст */
-            user-select: none;                      /* Стандартное отключение выбора */
+            padding: 4%;
+            background-color: rgb(255, 255, 53);
+        }
+        
+        #avtor{
+            color: black;
+            font-size: 100%;
         }
 
-        button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        i{
+            color: aliceblue;
+            font-size: 190%;
         }
 
-        button:focus {
-            animation: clickEffect 0.3s forwards;
-        }
+        p{
 
-        @keyframes clickEffect {
-            from {transform: scale(1);}
-            to {transform: scale(0.9);}
-        }
+            transition: all 1s ease-in-out;
 
-        h5 {
+        }
+            
+        p:hover{
             scale: 100%;
+            background-color: rgb(0, 18, 123);
+            color: aqua;
+            padding: 7%;
+            font-size: 300%;
+            
         }
+
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a{
+            color: black;
+        }
+
+        button{
+            border-radius: 30%;
+            padding: 5%;
+            transition: all 1s ease-in-out;
+        }
+
+        button:hover{
+            background-color: yellow;
+        }
+
+        h2{
+            transition: all 0.1s ease-in-out;
+        }
+        h2:hover{
+            font-size: 150%;
+            font-family: 'Courier New', Courier, monospace;
+            color: darkblue;
+        }
+
     </style>
-</head>
-<body>
-    <h1>Это твоя кнопка! 🔥</h1>
-    <button id="clickMeBtn">Кликни меня!</button>
-    <h5 id="counterDisplay">Всего кликов: 0</h5>
-
+  </head>
+  <body>
+    <i id="avtor">Автор Тит Кит</i> <!--Автор Кристиан Т.-->
+    <h1 align="center">Почему я должен делать fronted</h1>
+    <i>0</i>
+    <h2>весь сайт двигается если на вести мышку</h2>
+    <i>0</i>
+    <p>Анимации касаний 1</p><p>Анимации касаний 2</p>
+    <i>0</i>
+    <a id="butText">Знаю JavaScript Кнопка : не нажата</a>
+    <button onclick="changeText()">Нажми</button>
     <script>
-        let counter = Number(localStorage.getItem('clicks')) || 0;
-        updateCounter(counter);
-
-        document.getElementById('clickMeBtn').addEventListener('click', () => {
-            counter++;
-            localStorage.setItem('clicks', counter.toString());
-            updateCounter(counter);
-        });
-
-        function updateCounter(value) {
-            document.getElementById('counterDisplay').innerText = `Всего кликов: ${value}`;
+        function changeText(){
+            document.querySelector('#butText').textContent = 'Кнопка нажата';
         }
     </script>
-</body>
+  </body>
 </html>
+
