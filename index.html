@@ -17,7 +17,7 @@
             align-items: center;/* Выравниваем вертикально */
             height: 150px;
             z-index: 5;
-            box-shadow: 4px 4px 1px #000000;
+            box-shadow: 0px 0px 5px #000000;
         }
         
         .square {
@@ -36,7 +36,7 @@
         
         #container001{
             background: linear-gradient(#4DA832, #14F02A, #B2FF00 , #00FF55 );
-            border-radius: 5%;
+            border-radius: 1%;
         }
         
         #ballimg {
@@ -44,11 +44,11 @@
             animation-duration: 4s;  
             animation-timing-function: ease-in-out; 
             animation-iteration-count: infinite; 
-            width: 20vw;
-            height: 20vw;
-            transform: translate(1vw, -16vw);
+            width: 150px;
+            height: 150px;
+            transform: translate( -50px, -239px);
             border-radius: 50%;
-            box-shadow: 4px 4px 1px #000000;
+            box-shadow: 0px 0px 5px #000000;
         }
 
         @keyframes colorChange {
@@ -69,7 +69,12 @@
             max-width: 90%; 
         }
 
-            
+        @media screen and (max-width: 600px){
+            #ballimg {
+                display: none;
+            }
+        }
+           
     </style>
 </head>
 <body>
@@ -81,4 +86,3 @@
     <h2>Рассказывайте</h2>
     <div id="ballimg" ></div>
 </html>
-
