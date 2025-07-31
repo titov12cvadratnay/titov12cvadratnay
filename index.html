@@ -15,7 +15,10 @@
             justify-content: center; /* Выравниваем горизонтально */
             align-items: center;/* Выравниваем вертикально */
             height: 150px;
+            z-index: 5;
+            box-shadow: 4px 4px 1px #000000;
         }
+        
         .square {
             width: 100px;
             height: 100px;
@@ -31,31 +34,54 @@
         }
         
         #container001{
-            background: linear-gradient(#1FFF30, #F0FF1F, #61FFFB);
+            background: linear-gradient(#4DA832, #14F02A, #B2FF00 , #00FF55 );
             border-radius: 5%;
         }
         
-        #ballimg{
+        #ballimg {
             animation-name: colorChange;
             animation-duration: 4s;  
             animation-timing-function: ease-in-out; 
             animation-iteration-count: infinite; 
             width: 20vw;
-            height: 20vw ;
-            transform: translate(1vw, -10vw); 
+            height: 20vw;
+            transform: translate(1vw, -16vw);
             border-radius: 50%;
+            box-shadow: 4px 4px 1px #000000;
         }
 
         @keyframes colorChange {
-            0% {background-color: red;}
-            25% {background-color: orange;} 
-            50% {background-color: yellow;}
-            75% {background-color: orange;}
-            100% {background-color: red;}
+            0% {background-color: #14F02A;}
+            25% {background-color: #B2FF00;} 
+            50% {background-color: #E7E23C;}
+            75% {background-color: #B2FF00;}
+            100% {background-color: #14F02A;}
         }
+        
+        h2 {
+            position: relative;
+            top: -10vh; 
+            left: 5vw; 
+            transform: translate(5vw , clamp(-500px, -3vw , 300px));
+            font-size: clamp(1rem, 8vw, 2rem);
+            text-align: center;
+            max-width: 90%; 
+        }
+
             
     </style>
 </head>
+<body>
+    <div class="container" id="container001" >
+        <h4>Название </h4>
+        <h4>О нас </h4>
+        <h4>Войти </h4>
+    </div>
+    <h2>Рассказывайте</h2>
+    <div id="ballimg" ></div>
+</html>
+
+
 <body>
     <div class="container" id="container001" >
         <h4>Название </h4>
