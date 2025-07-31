@@ -15,7 +15,7 @@
             display: flex;
             justify-content: center; /* Выравниваем горизонтально */
             align-items: center;/* Выравниваем вертикально */
-            height: 150px;
+            height: clamp(150px ,30vw , 200px);
             z-index: 5;
             box-shadow: 0px 0px 5px #000000;
         }
@@ -44,9 +44,11 @@
             animation-duration: 4s;  
             animation-timing-function: ease-in-out; 
             animation-iteration-count: infinite; 
-            width: 150px;
-            height: 150px;
-            transform: translate( -50px, -239px);
+            width: clamp(150px ,30vw , 200px);
+            height: clamp(150px ,30vw , 200px);
+            transform: translateY(-289px);
+            position: absolute;
+            right: 5px;
             border-radius: 50%;
             box-shadow: 0px 0px 5px #000000;
         }
@@ -69,8 +71,42 @@
             max-width: 90%; 
         }
 
-        @media screen and (max-width: 600px){
+        .style-div-cub-1{
+            animation-name: colorChange;
+            animation-duration: 4s;  
+            animation-timing-function: ease-in-out; 
+            animation-iteration-count: infinite; 
+            width: 110px;
+            height: 110px;
+            transform: translate(0px, -70px);
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #000000;
+        }
+
+        .tema{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border-radius: 5%;
+            color: black;
+            height: 173px;
+            width: 110px;
+            background-color: #E7E23C;
+            box-shadow: 0px 0px 5px #000000;
+        }
+
+        @media screen and (max-width: 800px){
             #ballimg {
+                display: none;
+            }
+            
+            .tema{
+                display: none;
+            }
+        }
+        
+        @media screen and (min-width: 800px){
+            .style-div-cub-1 {
                 display: none;
             }
         }
@@ -84,5 +120,7 @@
         <h4>Войти </h4>
     </div>
     <h2>Рассказывайте</h2>
-    <div id="ballimg" ></div>
+    <div id="ballimg" align="right" ></div>
+    <button class="style-div-cub-1">Тема</button>
+    <button class="tema" >Тема</button>
 </html>
