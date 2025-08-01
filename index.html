@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Карточки товаров</title>
     <style>
+        /*стили CSS*/
         
+        /*тёмная тема*/
         body.dark-theme {
             color: black;
             background: #242424;
@@ -20,7 +22,6 @@
         body.dark-theme .style-div-cub-2 {
             background: linear-gradient(#1EA650 , #E7E23C );
         }
-        
         body.dark-theme .style-div-cub-1 {
             background: linear-gradient(#1EA650 , #E7E23C );
         }
@@ -46,6 +47,7 @@
             color: black;
         }
         
+        /* обычная сторона*/
         *{
             font-family: Arial;
             color: white;
@@ -97,6 +99,7 @@
             box-shadow: 0px 0px 5px #000000;
         }
         
+        /* анимации переливания цветов*/
         @keyframes colorChange-black {
             0% {background-color: #1EA650;}
             50% {background-color: #E7E23C;}
@@ -117,6 +120,7 @@
             100% {background-color: #00FF55;}
         }
         
+        /*обычная тема  */
         h2 {
             position: relative;
             top: -10vh; 
@@ -167,6 +171,8 @@
             width: 110px;
             box-shadow: 0px 0px 4px black;
         }
+
+        /* адаптация под устройства*/
         
         @media screen and (max-width: 800px){
             .tema{
@@ -193,12 +199,13 @@
     </style>
 </head>
 <body>
-
+    <!--Вот класс container -->
     <div class="container" id="container001" >
         <h4><bold>SparFlow</bold></h4>
         <h4>О нас</h4>
         <h4>Войти </h4>
     </div>
+    <!--а вот вся обычная часть -->
     <h2>Рассказывайте</h2>
     <div id="ballimg" align="right" ></div>
     <button class="style-div-cub-1" onclick="document.body.classList.toggle('dark-theme');">Тема</button>
