@@ -8,9 +8,41 @@
         
         body.dark-theme {
             color: black;
-            background: #121212;
+            background: #242424;
         }
         body.dark-theme a {
+            color: black;
+        }
+        body.dark-theme .container {
+            color: black;
+            box-shadow: 0px 0px 5px white;
+        }
+        body.dark-theme .style-div-cub-2 {
+            background: linear-gradient(#1EA650 , #E7E23C );
+        }
+        
+        body.dark-theme .style-div-cub-1 {
+            background: linear-gradient(#1EA650 , #E7E23C );
+        }
+        body.dark-theme .style-div-cub-1 {
+            background: linear-gradient(#1EA650 , #E7E23C );
+        }
+        body.dark-theme #container001 {
+            color: black;
+            background: linear-gradient(#1EA650 , #E7E23C );
+        }
+        body.dark-theme #ballimg {
+            animation-name: colorChange-black;
+            animation-duration: 4s;  
+            animation-timing-function: ease-in-out; 
+            animation-iteration-count: infinite; 
+            color: black;
+        }
+        body.dark-theme .tema {
+            animation-name: colorChange-black;
+            animation-duration: 4s;  
+            animation-timing-function: ease-in-out; 
+            animation-iteration-count: infinite; 
             color: black;
         }
         
@@ -63,6 +95,12 @@
             right: 5px;
             border-radius: 50%;
             box-shadow: 0px 0px 5px #000000;
+        }
+        
+        @keyframes colorChange-black {
+            0% {background-color: #1EA650;}
+            50% {background-color: #E7E23C;}
+            100% {background-color: #1EA650;}
         }
 
         @keyframes colorChange {
