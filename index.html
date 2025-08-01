@@ -61,6 +61,12 @@
             100% {background-color: #14F02A;}
         }
         
+        @keyframes colorChange-2 {
+            0% {background-color: #00FF55;}
+            50% {background-color: #00FFAE;}
+            100% {background-color: #00FF55;}
+        }
+        
         h2 {
             position: relative;
             top: -10vh; 
@@ -70,9 +76,11 @@
             text-align: center;
             max-width: 90%; 
         }
-
+        
+        #ballimg{ border-radius: 100% 0 0 100% / 100%; }
+        
         .style-div-cub-1{
-            animation-name: colorChange;
+            animation-name: colorChange-2;
             animation-duration: 4s;  
             animation-timing-function: ease-in-out; 
             animation-iteration-count: infinite; 
@@ -82,8 +90,24 @@
             border-radius: 5px;
             box-shadow: 0px 0px 5px #000000;
         }
+        
+        .style-div-cub-2{
+            animation-name: colorChange-2;
+            animation-duration: 4s;  
+            animation-timing-function: ease-in-out; 
+            animation-iteration-count: infinite; 
+            width: 62vw;
+            height: 110px;
+            transform: translate(120px, -180px);
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #000000;
+        }
 
         .tema{
+            animation-name: colorChange-2;
+            animation-duration: 4s;  
+            animation-timing-function: ease-in-out; 
+            animation-iteration-count: infinite; 
             position: absolute;
             top: 20px;
             left: 20px;
@@ -91,36 +115,46 @@
             color: black;
             height: 173px;
             width: 110px;
-            background-color: #E7E23C;
-            box-shadow: 0px 0px 5px #000000;
+            box-shadow: 0px 0px 4px black;
         }
-
+        
         @media screen and (max-width: 800px){
-            #ballimg {
-                display: none;
-            }
-            
             .tema{
                 display: none;
             }
+            
+            #ballimg{
+                display: none;i
+            }
+
         }
         
         @media screen and (min-width: 800px){
             .style-div-cub-1 {
                 display: none;
             }
+            
+            .style-div-cub-2{
+                display: none;
+            }
         }
            
     </style>
+    <script>
+    function onclick-tap-{
+        document.body.dataset.switch = radio.value;	
+    }
+    </script>
 </head>
 <body>
     <div class="container" id="container001" >
-        <h4>Название </h4>
-        <h4>О нас </h4>
+        <h4><bold>SparFlow</bold></h4>
+        <h4>О нас</h4>
         <h4>Войти </h4>
     </div>
     <h2>Рассказывайте</h2>
     <div id="ballimg" align="right" ></div>
-    <button class="style-div-cub-1">Тема</button>
+    <button class="style-div-cub-1" onclick="">Тема</button>
     <button class="tema" >Тема</button>
+    <div class="style-div-cub-2" >Текст </div>
 </html>
