@@ -3,214 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Карточки товаров</title>
+    <title>Litefacebook</title>
     <style>
-        /*стили CSS*/
         
-        /*тёмная тема*/
-        body.dark-theme {
-            color: black;
-            background: #242424;
-        }
-        body.dark-theme a {
-            color: black;
-        }
-        body.dark-theme .container {
-            color: black;
-            box-shadow: 0px 0px 5px white;
-        }
-        body.dark-theme .style-div-cub-2 {
-            background: linear-gradient(#1EA650 , #E7E23C );
-        }
-        body.dark-theme .style-div-cub-1 {
-            background: linear-gradient(#1EA650 , #E7E23C );
-        }
-        body.dark-theme .style-div-cub-1 {
-            background: linear-gradient(#1EA650 , #E7E23C );
-        }
-        body.dark-theme #container001 {
-            color: black;
-            background: linear-gradient(#1EA650 , #E7E23C );
-        }
-        body.dark-theme #ballimg {
-            animation-name: colorChange-black;
-            animation-duration: 4s;  
-            animation-timing-function: ease-in-out; 
-            animation-iteration-count: infinite; 
-            color: black;
-        }
-        body.dark-theme .tema {
-            animation-name: colorChange-black;
-            animation-duration: 4s;  
-            animation-timing-function: ease-in-out; 
-            animation-iteration-count: infinite; 
-            color: black;
-        }
-        
-        /* обычная сторона*/
         *{
-            font-family: Arial;
-            color: white;
-        }
-        
-        .pointerfocus{
-            background-color: #A7DB9A;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:  clamp(3px , 3vw , 20px);
         }
 
-        .container {
+        #app{
             display: flex;
-            justify-content: center; /* Выравниваем горизонтально */
+            justify-content: center; 
             align-items: center;
-            height: clamp(150px ,30vw , 200px);
-            z-index: 5;
-            box-shadow: 0px 0px 5px #000000;
-        }
-        
-        .square {
-            width: 100px;
-            height: 100px;
-            background-color: #ffa500; 
-            margin: 1px;          
-            font-family: Arial;
-            font-size: 120%;
-        }
-        
-        h4{
-            transform: translate( 0px , -60px);
-            padding: 8%;
-        }
-        
-        #container001{
-            background: linear-gradient(#4DA832, #14F02A, #00FF55 , #E7E23C );
-            border-radius: 1%;
-        }
-        
-        #ballimg {
-            animation-name: colorChange;
-            animation-duration: 4s;  
-            animation-timing-function: ease-in-out; 
-            animation-iteration-count: infinite; 
-            width: clamp(150px ,30vw , 200px);
-            height: clamp(150px ,30vw , 200px);
-            transform: translateY(-289px);
-            position: absolute;
-            right: 5px;
-            border-radius: 50%;
-            box-shadow: 0px 0px 5px #000000;
-        }
-        
-        /* анимации переливания цветов*/
-        @keyframes colorChange-black {
-            0% {background-color: #1EA650;}
-            50% {background-color: #E7E23C;}
-            100% {background-color: #1EA650;}
+            height: 130px;
+            width: 93vw;
+            background-color: rgb(255, 245, 139);
         }
 
-        @keyframes colorChange {
-            0% {background-color: #14F02A;}
-            25% {background-color: #B2FF00;} 
-            50% {background-color: #E7E23C;}
-            75% {background-color: #B2FF00;}
-            100% {background-color: #14F02A;}
-        }
-        
-        @keyframes colorChange-2 {
-            0% {background-color: #00FF55;}
-            50% {background-color: #00FFAE;}
-            100% {background-color: #00FF55;}
-        }
-        
-        /*обычная тема  */
-        h2 {
-            position: relative;
-            top: -10vh; 
-            left: 5vw; 
-            transform: translate(5vw , clamp(-500px, -3vw , 300px));
-            font-size: clamp(1rem, 8vw, 2rem);
-            text-align: center;
-            max-width: 90%; 
-        }
-        
-        #ballimg{ border-radius: 100% 0 0 100% / 100%; }
-        
-        .style-div-cub-1{
-            animation-name: colorChange-2;
-            animation-duration: 4s;  
-            animation-timing-function: ease-in-out; 
-            animation-iteration-count: infinite; 
-            width: 110px;
-            height: 110px;
-            transform: translate(0px, -70px);
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px #000000;
-        }
-        
-        .style-div-cub-2{
-            animation-name: colorChange-2;
-            animation-duration: 4s;  
-            animation-timing-function: ease-in-out; 
-            animation-iteration-count: infinite; 
-            width: 62vw;
-            height: 110px;
-            transform: translate(120px, -180px);
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px #000000;
+        .title{
+            font-size: clamp(3px , 7vw , 55px);
         }
 
-        .tema{
-            animation-name: colorChange-2;
-            animation-duration: 4s;  
-            animation-timing-function: ease-in-out; 
-            animation-iteration-count: infinite; 
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            border-radius: 5%;
-            color: black;
-            height: 173px;
-            width: 110px;
-            box-shadow: 0px 0px 4px black;
+        #app , a {
+            padding: 10px;
+            top: 50px;
         }
 
-        /* адаптация под устройства*/
-        
-        @media screen and (max-width: 800px){
-            .tema{
-                display: none;
-            }
-            
-            #ballimg{
-                display: none;
-            }
-
-        }
-        
-        @media screen and (min-width: 800px){
-            .style-div-cub-1 {
-                display: none;
-            }
-            
-            .style-div-cub-2{
-                display: none;
-            }
-        }
-           
-           
     </style>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="importmap">
+    {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+    }
+    </script>
+
+    <script type="module">
+        import { createApp } from 'vue'
+
+        createApp({
+            data() {
+                return {
+                    titleClass: 'title'
+                }
+            }
+        }).mount('#app')
+</script>
+
 </head>
 <body>
-    <!--Вот класс container -->
-    <div class="container" id="container001" >
-        <h4><bold>SparFlow</bold></h4>
-        <h4>О нас</h4>
-        <h4>Войти </h4>
+    <p>by Kit</p>
+    <div id="app">
+        <h1 :class="titleClass" >Litefacebook</h1> 
+        <a href="https://www.yandex.ru/search/?text=%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9+facebook&lr=10719" style="text-decoration: none; color: black;">О нас</a>
+        <a href="https://www.yandex.ru/search/?text=%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9+facebook&lr=10719" style="text-decoration: none; color: black;">Акаунт</a>
     </div>
-    <!--а вот вся обычная часть -->
-    <h2>Рассказывайте</h2>
-    <div id="ballimg" align="right" ></div>
-    <button class="style-div-cub-1" onclick="document.body.classList.toggle('dark-theme');">Тема</button>
-    <button class="tema" onclick="document.body.classList.toggle('dark-theme');">Тема</button>
-    <div class="style-div-cub-2" >Текст </div>
-    <!--Автор Тит Кит или mentos-->
 </body>
 </html>
+
