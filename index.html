@@ -29,6 +29,36 @@
             top: 50px;
         }
 
+        .regi{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .regi , input {
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #a9a9a9;
+                border-radius: 4px;
+                font-size: 16px;
+        }
+
+        .regi , button {
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 245, 139);
+        }
+
+        .p-1 {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+
+        button{
+            height: 30vw;
+            width: 30vw;
+            border-radius: 20% 20% 20% 20% / 20%;
+        }
+
     </style>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -50,15 +80,20 @@
                 }
             }
         }).mount('#app')
-</script>
 
+</script>
 </head>
 <body>
-    <p>by Kit</p>
+    <p>by Kit ------------ Button For Us --------- Кнопка Для Нас</p>
     <div id="app">
-        <h1 :class="titleClass" >Litefacebook</h1> 
+        <h1 :class="titleClass" >Butfrus</h1> 
         <a href="https://www.yandex.ru/search/?text=%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9+facebook&lr=10719" style="text-decoration: none; color: black;">О нас</a>
         <a href="https://www.yandex.ru/search/?text=%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9+facebook&lr=10719" style="text-decoration: none; color: black;">Акаунт</a>
+    </div>
+    <h2 >Это классический кликер . Самый лучший в мире . Проще быть не может</h2>
+    <h1 align="center" >Клики : 999</h1>
+    <div class="p-1">
+        <button class="p-1">Кнопка</button>
     </div>
 </body>
 </html>
