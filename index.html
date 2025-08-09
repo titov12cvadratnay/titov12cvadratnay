@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Litefacebook</title>
+    <title>Butfrus</title>
     <style>
         
         *{
@@ -11,12 +11,11 @@
             font-size:  clamp(10px , 5vw , 20px);
         }
 
-        #app{
+        #ap{
             display: flex;
             justify-content: center; 
             align-items: center;
             height: 130px;
-            width: 93vw;
             background-color: rgb(255, 245, 139);
         }
 
@@ -24,7 +23,7 @@
             font-size: clamp(3px , 7vw , 55px);
         }
 
-        #app , a {
+        #ap , a {
             padding: 10px;
             top: 50px;
         }
@@ -51,6 +50,7 @@
             display: flex;
             justify-content: center; 
             align-items: center;
+            padding: clamp( 10px , 1vw , 20px);
         }
 
         .none{
@@ -64,6 +64,18 @@
             border: none;
         }
 
+        .submit-button{
+            height: clamp(100px ,2vw , 150px);
+            width: clamp(200px ,30vw , 300px);
+            border-radius: 20% 20% 20% 20% / 20%;
+            border: none;
+        }
+
+        .registration-form {
+            display: flex;
+            flex-direction: column;
+        }
+
     </style>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -75,6 +87,14 @@
     }
     </script>
 
+    <script>
+        async function regf(event) {
+            event.preventDefault(); 
+            alert("Login")
+            }
+
+    </script>
+
     <script type="module">
         import { createApp } from 'vue'
 
@@ -83,44 +103,45 @@
         createApp({
             data() {
                 return {
-                    titleClass: 'title'
+                    titleClass: 'title',
+                    login: false
+                }
+            },
+            methods: {
+                loginDiNone() {
+                    this.login = true
                 }
             }
-        }).mount('#app')
-
-        createApp({
-            data(){
-                return{
-                    akNone: 'p-1'
-                }
-            }
-        }).mount('body')
-        console.log(akNone)
-        function ifAcaunt (){
-            if (acaunt) {
-                console.log(akNone)
-                akNone = 'none'
-                console.log(akNone)
-            }
-        }
-        
+        }).mount('#app')   
 
 </script>
+
 </head>
 <body>
-    <p>by Kit ------------ Button For Us --------- Кнопка Для Нас</p>
     <div id="app">
-        <h1 :class="titleClass" >Butfrus</h1> 
-        <a href="https://www.yandex.ru/search/?text=%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9+facebook&lr=10719" style="text-decoration: none; color: black;">О нас</a>
-        <a href="https://www.yandex.ru/search/?text=%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9+facebook&lr=10719" style="text-decoration: none; color: black;">Акаунт</a>
-    </div>
-    <h2 >Это классический кликер . Самый лучший в мире . Проще быть не может</h2>
-    <h1 align="center" class="p-1">Клики : 999</h1>
-    <div class="p-1">
-        <button class="p-1" onclick=ifAcaunt()>Кнопка</button>
+        <p>by Kit ------------ Button For Us --------- Кнопка Для Нас</p>
+        <div id="ap">
+            <h1 :class="titleClass" >Butfrus</h1> 
+            <a href="https://www.yandex.ru/search/?text=%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9+facebook&lr=10719" style="text-decoration: none; color: black;">О нас</a>
+            <a href="https://www.yandex.ru/search/?text=%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B9+facebook&lr=10719" style="text-decoration: none; color: black;">Акаунт</a>
+        </div>
+        <h2 >Это классический кликер. Самый лучший в мире. Проще быть не может</h2>
+        <h1 align="center" class="p-1">Клики : {{click}}</h1>
+        <div class="p-1" v-if="login">
+            <button class="p-1" onclick=ifAcaunt()>Кнопка</button>
+        </div>
+        <form id="registration-form" class="registration-form" v-if="!login">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="first_name">Имя:</label>
+            <input type="text" id="first_name" name="first_name" required>
+
+            <button type="submit" id="reg-button" class="submit-button" @click=loginDiNone() onclick="regf(event)">Зарегистрироваться</button>    
+        </form>
     </div>
 </body>
 </html>
-
-
-
